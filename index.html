@@ -1,120 +1,138 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>محمد آرمین | سایت شخصی</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mohammad Armin - Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            transition: background-color 0.5s, color 0.5s;
+        }
+        body {
+            background-image: url('backgrund.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+        }
+
+        .dark-theme {
+            background-color: #121212;
+            color: #eee;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1f4037, #99f2c8);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            font-size: 28px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border-bottom: 3px solid #00ff88;
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            background: #00ff88;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .section {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .project-card {
+            margin: 20px auto;
+            width: 80%;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+            .project-card:hover {
+                transform: scale(1.05);
+                box-shadow: 0 0 20px rgba(0, 255, 200, 0.5);
+            }
+
+        .parallax {
+            background-image: url('images/project1.jpg');
+            height: 400px;
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                font-size: 20px;
+                padding: 15px;
+            }
+
+            .project-card {
+                width: 95%;
+            }
+        }
+    </style>
 </head>
 <body>
-
     <header>
-        <div class="container">
-            <h1>محمد آرمین</h1>
-            <p>توسعه‌دهنده وب | بازی‌ساز | برنامه‌نویس</p>
-            <button id="darkModeToggle">🌙 تغییر مود</button>
-        </div>
+        Mohammad Armin Portfolio
+        <br />
+        <button onclick="toggleTheme()">🌓 Toggle Dark Mode</button>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="#about">درباره من</a></li>
-            <li><a href="#skills">مهارت‌ها</a></li>
-            <li><a href="#projects">نمونه‌کارها</a></li>
-            <li><a href="#contact">تماس</a></li>
-        </ul>
-    </nav>
+    <div class="parallax"></div>
 
-    <section id="about" class="fade-in">
-        <div class="container">
-            <h2>درباره من</h2>
-            <p>
-                من محمد آرمین هستم، 14 ساله و علاقه‌مند به دنیای فناوری. در چند سال گذشته در زمینه‌های بازی‌سازی، برنامه‌نویسی و طراحی سایت فعالیت داشته‌ام.
-                عاشق خلق چیزهای جدیدم و همیشه دنبال یادگیری مهارت‌های تازه هستم.
-            </p>
+    <section class="section" data-aos="fade-up">
+        <h2>About Me</h2>
+        <p>I’m Mohammad Armin, 20 years old. Skilled in Game Development, Programming, and Web Design.</p>
+    </section>
+
+    <section class="section" data-aos="fade-up">
+        <h2>Projects</h2>
+        <div class="project-card">
+            <h3>Game Development</h3>
+            <img src="images/project1.jpg" with="100%" alt="Game Dev">
+        </div>
+        <div class="project-card">
+            <h3>Programming</h3>
+            <img src="images/project2.jpg" with="100%" alt="Programming">
+        </div>
+        <div class="project-card">
+            <h3>Web Design</h3>
+            <img src="images/project3.jpg" with="100%" alt="Web Design">
+        </div>
+        <div class="project-card">
+            <h3>Portfolio Design</h3>
+            <img src="images/project4.jpg" with="100%" alt="Portfolio">
         </div>
     </section>
 
-    <section id="skills" class="fade-in">
-        <div class="container">
-            <h2>مهارت‌ها</h2>
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
 
-            <h3>🎮 بازی‌سازی</h3>
-            <ul>
-                <li>Unity</li>
-                <li>C#</li>
-                <li>طراحی مراحل</li>
-            </ul>
-
-            <h3>💻 برنامه‌نویسی</h3>
-            <ul>
-                <li>Python</li>
-                <li>JavaScript</li>
-                <li>C#</li>
-            </ul>
-
-            <h3>🌐 طراحی سایت</h3>
-            <ul>
-                <li>HTML & CSS</li>
-                <li>JavaScript</li>
-                <li>طراحی ریسپانسیو</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="projects" class="fade-in">
-        <div class="container">
-            <h2>نمونه‌کارها</h2>
-
-            <div class="project">
-                <img src="project1.jpg" alt="پروژه ۱" class="project-img">
-                <h3>بازی Shadow Runner</h3>
-                <p>ساخته شده با Unity. گیم‌پلی ماجراجویی دوبعدی.</p>
-            </div>
-
-            <div class="project">
-                <img src="project2.jpg" alt="پروژه ۲" class="project-img">
-                <h3>اپلیکیشن یادداشت</h3>
-                <p>با Python نوشته‌شده. رابط کاربری ساده و تمیز.</p>
-            </div>
-
-            <div class="project">
-                <img src="project3.jpg" alt="پروژه ۳" class="project-img">
-                <h3>سایت خدمات طراحی</h3>
-                <p>با HTML/CSS/JS طراحی‌شده. معرفی خدمات و نمونه‌کارها.</p>
-            </div>
-
-            <div class="project">
-                <img src="project4.jpg" alt="پروژه ۴" class="project-img">
-                <h3>پرتال کاربر ساده</h3>
-                <p>فرانت‌اند سبک برای نمایش اطلاعات کاربران.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="fade-in">
-        <div class="container">
-            <h2>تماس با من</h2>
-            <form>
-                <label for="name">نام:</label>
-                <input type="text" id="name" name="name" required>
-
-                <label for="email">ایمیل:</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="message">پیام:</label>
-                <textarea id="message" name="message" required></textarea>
-
-                <button type="submit">ارسال</button>
-            </form>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>© 2025 محمد آرمین | تمام حقوق محفوظ است</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+        }
+    </script>
 </body>
 </html>
