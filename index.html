@@ -1,138 +1,265 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mohammad Armin - Portfolio</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>محمد ارمین | توسعه‌دهنده وب، بازی‌ساز و برنامه‌نویس</title>
+<style>
+  /* پایه */
+    body {
+        background-image: url('background.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed; /* باعث میشه با اسکرول ثابت بمونه */
+        color: white; /* اگه عکس تیره است، متن رو سفید کن */
+    }
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
-
-    <!-- AOS Animation -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Orbitron', sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            transition: background-color 0.5s, color 0.5s;
-        }
-        body {
-            background-image: url('backgrund.jpg');
-            background-size: cover;
-            background-position: center center;
-            background-attachment: fixed;
-        }
-
-        .dark-theme {
-            background-color: #121212;
-            color: #eee;
-        }
-
-        header {
-            background: linear-gradient(135deg, #1f4037, #99f2c8);
-            color: white;
-            padding: 30px;
-            text-align: center;
-            font-size: 28px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            border-bottom: 3px solid #00ff88;
-        }
-
-        button {
-            margin: 10px;
-            padding: 10px 20px;
-            background: #00ff88;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        .section {
-            padding: 40px;
-            text-align: center;
-        }
-
-        .project-card {
-            margin: 20px auto;
-            width: 80%;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-            .project-card:hover {
-                transform: scale(1.05);
-                box-shadow: 0 0 20px rgba(0, 255, 200, 0.5);
-            }
-
-        .parallax {
-            background-image: url('images/project1.jpg');
-            height: 400px;
-            background-attachment: fixed;
-            background-size: cover;
-            background-position: center;
-        }
-
-        @media (max-width: 768px) {
-            header {
-                font-size: 20px;
-                padding: 15px;
-            }
-
-            .project-card {
-                width: 95%;
-            }
-        }
-    </style>
+  
+  /* دارک مود */
+  body.dark {
+    background-color: #121212;
+    color: #eee;
+  }
+  header {
+    position: fixed;
+    top: 0; right: 0; left: 0;
+    background-color: #fff;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  body.dark header {
+    background-color: #222;
+    color: #eee;
+    box-shadow: 0 2px 10px rgba(255,255,255,0.1);
+  }
+  header h1 {
+    font-size: 1.3rem;
+    margin: 0;
+    user-select: none;
+  }
+  nav {
+    display: flex;
+    gap: 20px;
+  }
+  nav button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #555;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  nav button:hover,
+  nav button.active {
+    background-color: #007bff;
+    color: white;
+  }
+  body.dark nav button {
+    color: #ccc;
+  }
+  body.dark nav button:hover,
+  body.dark nav button.active {
+    background-color: #3399ff;
+    color: white;
+  }
+  #darkModeToggle {
+    background-color: #333;
+    color: white;
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  body.dark #darkModeToggle {
+    background-color: #eee;
+    color: #222;
+  }
+  main {
+    max-width: 900px;
+    margin: 100px auto 40px;
+    padding: 0 20px;
+  }
+  section {
+    background-color: #fff;
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  body.dark section {
+    background-color: #1e1e1e;
+    box-shadow: 0 2px 10px rgba(255,255,255,0.1);
+  }
+  section h2 {
+    border-bottom: 3px solid #007bff;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+  }
+  ul {
+    list-style-type: disc;
+    padding-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  ul li {
+    margin-bottom: 8px;
+  }
+  .portfolio-item {
+    margin-bottom: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s;
+  }
+  body.dark .portfolio-item {
+    box-shadow: 0 2px 10px rgba(255,255,255,0.1);
+  }
+  .portfolio-item img {
+    width: 100%;
+    display: block;
+    border-radius: 10px 10px 0 0;
+  }
+  .portfolio-item h3 {
+    margin: 15px 15px 10px;
+    color: #007bff;
+  }
+  .portfolio-item p {
+    margin: 5px 15px 15px;
+    line-height: 1.5;
+  }
+</style>
 </head>
 <body>
-    <header>
-        Mohammad Armin Portfolio
-        <br />
-        <button onclick="toggleTheme()">🌓 Toggle Dark Mode</button>
-    </header>
 
-    <div class="parallax"></div>
+<header>
+  <h1>محمد ارمین - توسعه‌دهنده وب، بازی‌ساز و برنامه‌نویس</h1>
+  <nav>
+    <button class="active" data-target="about">درباره من</button>
+    <button data-target="skills">مهارت‌ها</button>
+    <button data-target="portfolio">نمونه کارها</button>
+    <button data-target="contact">تماس با من</button>
+  </nav>
+  <button id="darkModeToggle">دارک مود</button>
+</header>
 
-    <section class="section" data-aos="fade-up">
-        <h2>About Me</h2>
-        <p>I’m Mohammad Armin, 20 years old. Skilled in Game Development, Programming, and Web Design.</p>
-    </section>
+<main>
+  <section id="about">
+    <h2>درباره من</h2>
+    <p>سلام! من محمد ارمین هستم، توسعه‌دهنده وب، بازی‌ساز و برنامه‌نویس با چند سال تجربه در زمینه‌های مختلف فناوری اطلاعات.</p>
+    <p>علاقه‌مند به خلق پروژه‌های نوآورانه و کاربرپسند هستم که بتوانند ارزش واقعی برای کاربران ایجاد کنند.</p>
+    <p>هدف من ارتقاء مهارت‌هایم و ارائه بهترین راه‌حل‌های نرم‌افزاری به مشتریان و تیم‌های توسعه است.</p>
+  </section>
 
-    <section class="section" data-aos="fade-up">
-        <h2>Projects</h2>
-        <div class="project-card">
-            <h3>Game Development</h3>
-            <img src="images/project1.jpg" with="100%" alt="Game Dev">
-        </div>
-        <div class="project-card">
-            <h3>Programming</h3>
-            <img src="images/project2.jpg" with="100%" alt="Programming">
-        </div>
-        <div class="project-card">
-            <h3>Web Design</h3>
-            <img src="images/project3.jpg" with="100%" alt="Web Design">
-        </div>
-        <div class="project-card">
-            <h3>Portfolio Design</h3>
-            <img src="images/project4.jpg" with="100%" alt="Portfolio">
-        </div>
-    </section>
+  <section id="skills">
+    <h2>مهارت‌ها</h2>
+    <ul>
+      <li>تسلط به HTML، CSS و JavaScript برای طراحی صفحات وب مدرن و واکنش‌گرا.</li>
+      <li>تجربه کار با React و Vue برای توسعه برنامه‌های پیشرفته تحت وب.</li>
+      <li>توسعه Backend با Node.js و Express و مدیریت پایگاه داده‌ها.</li>
+      <li>طراحی بازی با Unity و Unreal Engine برای ساخت بازی‌های سه‌بعدی و دو‌بعدی.</li>
+      <li>برنامه‌نویسی با زبان‌های C# و Python برای پروژه‌های متنوع.</li>
+    </ul>
+  </section>
 
-    <!-- AOS Library -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init();
+  <section id="portfolio">
+    <h2>نمونه کارها</h2>
 
-        function toggleTheme() {
-            document.body.classList.toggle('dark-theme');
-        }
-    </script>
+    <div class="portfolio-item">
+      <img src="images/ecommerce_website.jpg" alt="وبسایت فروشگاهی مدرن" />
+      <h3>وبسایت فروشگاهی مدرن</h3>
+      <p>طراحی یک فروشگاه اینترنتی با رابط کاربری زیبا و کاربرپسند.</p>
+      <p>بهینه شده برای موبایل و دسکتاپ با بارگذاری سریع.</p>
+      <p>استفاده از تکنولوژی‌های به‌روز برای تجربه خرید راحت.</p>
+    </div>
+
+    <div class="portfolio-item">
+      <img src="images/2d_platformer_game.jpg" alt="بازی پلتفرمر دوبعدی" />
+      <h3>بازی پلتفرمر دوبعدی</h3>
+      <p>ساخت بازی دوبعدی با گرافیک فانتزی و گیم‌پلی جذاب.</p>
+      <p>طراحی مراحل چالش‌برانگیز و سرگرم‌کننده برای کاربران مختلف.</p>
+      <p>پیاده‌سازی جلوه‌های بصری زیبا و انیمیشن‌های روان.</p>
+    </div>
+
+    <div class="portfolio-item">
+      <img src="images/project_management_app.jpg" alt="برنامه مدیریت پروژه" />
+      <h3>برنامه مدیریت پروژه تحت وب</h3>
+      <p>ابزاری برای مدیریت وظایف و همکاری تیمی به صورت آنلاین.</p>
+      <p>نمایش داشبورد و نمودارهای پیشرفت پروژه‌ها.</p>
+      <p>طراحی رابط کاربری ساده و کارآمد برای کاربران مختلف.</p>
+    </div>
+
+    <div class="portfolio-item">
+      <img src="images/vr_experience.jpg" alt="تجربه واقعیت مجازی" />
+      <h3>تجربه واقعیت مجازی</h3>
+      <p>ساخت محیط‌های سه‌بعدی تعاملی با کنترل‌های ساده.</p>
+      <p>امکان تعامل با اشیاء و انجام مأموریت‌ها در فضای VR.</p>
+      <p>بهینه‌سازی برای دستگاه‌های مختلف واقعیت مجازی.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>تماس با من</h2>
+    <p>برای ارتباط می‌توانید ایمیل بزنید: <a href="mailto:mohammad.armin@example.com">mohammad.armin@example.com</a></p>
+    <p>یا در شبکه‌های اجتماعی من را دنبال کنید:</p>
+    <ul>
+      <li><a href="https://github.com/mohammadarmin" target="_blank" rel="noopener noreferrer">گیت‌هاب</a></li>
+      <li><a href="https://linkedin.com/in/mohammadarmin" target="_blank" rel="noopener noreferrer">لینکدین</a></li>
+      <li><a href="https://twitter.com/mohammadarmin" target="_blank" rel="noopener noreferrer">توئیتر</a></li>
+    </ul>
+  </section>
+</main>
+
+<script>
+  // دارک مود
+  const darkModeToggle = document.getElementById('darkModeToggle');
+  const body = document.body;
+
+  // بارگذاری حالت ذخیره شده دارک مود
+  if(localStorage.getItem('darkMode') === 'enabled'){
+    body.classList.add('dark');
+    darkModeToggle.textContent = 'روشن مود';
+  }
+
+  darkModeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark');
+
+    if(body.classList.contains('dark')){
+      localStorage.setItem('darkMode', 'enabled');
+      darkModeToggle.textContent = 'روشن مود';
+    } else {
+      localStorage.setItem('darkMode', 'disabled');
+      darkModeToggle.textContent = 'دارک مود';
+    }
+  });
+
+  // ناوبری دکمه ها (active و اسکرول به بخش)
+  const navButtons = document.querySelectorAll('nav button[data-target]');
+  navButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // حذف active از همه
+      navButtons.forEach(btn => btn.classList.remove('active'));
+      // اضافه کردن به دکمه کلیک شده
+      button.classList.add('active');
+      // اسکرول به بخش مربوطه
+      const targetId = button.getAttribute('data-target');
+      const targetSection = document.getElementById(targetId);
+      if(targetSection) {
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
